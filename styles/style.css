@@ -8,7 +8,6 @@
 
 :root {
   font-size: 62.5%;
-  /* --text-color: #0f172a; */
 }
 
 main {
@@ -355,4 +354,27 @@ section {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .container-geral {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .qualidade-ar,
+  .container-horario-sol,
+  .previsao-semanal {
+    width: 100%;
+  }
+  .rodape {
+    flex-wrap: wrap;
+  }
+  .descricao {
+    display: none;
+  }
+  .previsao-semanal {
+    flex-wrap: wrap;
+  }
 }
