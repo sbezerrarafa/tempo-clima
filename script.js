@@ -131,7 +131,7 @@ const mostrarCidade = async (city) => {
   //chamando segunda api
 
   const weatherForecast = async () => {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relativehumidity_2m,rain,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,windspeed_10m_max&current_weather=true&timezone=America%2FSao_Paulo`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=precipitation_probability,temperature_2m,relativehumidity_2m,rain,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,windspeed_10m_max&current_weather=true&timezone=America%2FSao_Paulo`;
 
     const resposta = await fetch(url);
     const dados = await resposta.json();
@@ -145,9 +145,9 @@ const mostrarCidade = async (city) => {
   tempAtualElemento.innerText = dados.current_weather.temperature;
   maxTempAtualElemento.innerText = dados.daily.temperature_2m_max[0];
   minTempAtualElemento.innerText = dados.daily.temperature_2m_min[0] + '°';
-  ventoElemento.innerText = dados.current_weather.windspeed;
+  ventoElemento.innerText = dados.current_weather.windspeed + 'km/h';
   umidadeAtualElemento.innerText = dados.hourly.relativehumidity_2m[0];
-  possibiChuvaElemento.innerText = dados.hourly.rain[0];
+  possibiChuvaElemento.innerText = dados.hourly.precipitation_probability[0];
 
   // dados sol
 
